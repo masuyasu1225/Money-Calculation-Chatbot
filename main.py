@@ -19,9 +19,9 @@ async def on_ready():
 async def on_message(message):
     # Botが出力したメッセージじゃ無い場合（この条件でBotのメッセージを弾く）
     if not message.author.bot:
-        # 入力されたメッセージが「はじめまして」ならBotが「よろしくおねがいします」と出力する設定
-        if message.content == 'はじめまして':
-            await message.channel.send('よろしくおねがいします')
+        # 入力されたメッセージが数字の場合
+        if message.content.isdecimal():
+            await message.channel.send('数字だね')
 
     # 上記と同様に2個目の設定
     if message.content == 'さようなら':
