@@ -47,5 +47,6 @@ async def on_message(message):
                 sum_money += int(old_message.content)
                 print(old_message.created_at, "user:", old_message.author, "message:", old_message.content, "sum:", sum_money)
         print("Total:", sum_money)
+
 # TOKENの値を読み込み、Botを起動させる
 client.run(os.getenv('TOKEN'))
