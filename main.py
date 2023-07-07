@@ -36,5 +36,16 @@ async def on_message(message):
             sum_money += int(message.content)
             await message.channel.send(sum_money)  # 'sum' ではなく 'sum_money' を使用します
 
+#過去のメッセージから数字の合計を算出
+@client.event
+async def on_message(message):
+    if message.content.startswith('!history'):
+        async for old_message in message.channel.history(limit=1000):  # 最新から1000件のメッセージを取得
+            #print(old_message.author, old_message.content)  # メッセージの投稿者と内容を表示
+            if is_int(old_message.content):
+                global sum_money
+                sum_money += int(old_message.content)
+                print(old_message.created_at, "user:", old_message.author, "message:", old_message.content, "sum:", sum_money)
+        print("Total:", sum_money)
 # TOKENの値を読み込み、Botを起動させる
 client.run(os.getenv('TOKEN'))
