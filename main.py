@@ -56,7 +56,7 @@ async def on_message(message):
         if message.content.startswith('!Total') or message.content.startswith('!total'):
             global sum_money  # この行でグローバル変数を使用することを明示的に宣言します。
             sum_money = 0  # コマンドごとに合計値をリセットします
-            async for old_message in message.channel.history(limit=1000):  # 最新から100件のメッセージを取得
+            async for old_message in message.channel.history(limit=1000):  # 最新から1000件のメッセージを取得
                 if old_message.author == message.author and is_int(old_message.content):
                     sum_money += int(old_message.content)
             await message.channel.send(f'{message.author.display_name} Total: {sum_money}')  # 合計をメッセージとして送信
