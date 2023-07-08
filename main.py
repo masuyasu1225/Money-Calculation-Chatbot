@@ -53,7 +53,7 @@ async def on_ready():
 async def on_message(message):
     # Botが出力したメッセージじゃ無い場合（この条件でBotのメッセージを弾く）
     if not message.author.bot:
-        if message.content.startswith('!Total'):
+        if message.content.startswith('!Total') or message.content.startswith('!total'):
             global sum_money  # この行でグローバル変数を使用することを明示的に宣言します。
             sum_money = 0  # コマンドごとに合計値をリセットします
             async for old_message in message.channel.history(limit=100):  # 最新から100件のメッセージを取得
