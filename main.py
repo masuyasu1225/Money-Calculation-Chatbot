@@ -25,29 +25,6 @@ def is_int(s):
 async def on_ready():
     print('Startup Success!!!')
 
-# # Botがメッセージを読み込んだ際のイベント設定
-# @client.event
-# async def on_message(message):
-#     # Botが出力したメッセージじゃ無い場合（この条件でBotのメッセージを弾く）
-#     if not message.author.bot:
-#         # 入力されたメッセージが整数の場合
-#         if is_int(message.content):
-#             global sum_money  # この行でグローバル変数を使用することを明示的に宣言します。
-#             sum_money += int(message.content)
-#             await message.channel.send(sum_money)  # 'sum' ではなく 'sum_money' を使用します
-
-# #過去のメッセージから数字の合計を算出
-# @client.event
-# async def on_message(message):
-#     if message.content.startswith('!history'):
-#         async for old_message in message.channel.history(limit=1000):  # 最新から1000件のメッセージを取得
-#             #print(old_message.author, old_message.content)  # メッセージの投稿者と内容を表示
-#             if is_int(old_message.content):
-#                 global sum_money
-#                 sum_money += int(old_message.content)
-#                 print(old_message.created_at, "user:", old_message.author, "message:", old_message.content, "sum:", sum_money)
-#         print("Total:", sum_money)
-
 # Botがメッセージを読み込んだ際のイベント設定
 @client.event
 async def on_message(message):
